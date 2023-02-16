@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@600&family=Roboto+Condensed&display=swap');
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    form {
+      padding: 20px;
+      width: 300px;
+      height: 300px;
+      background: linen;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 10px;
+    }
+
+    label {
+       display: grid;
+       grid-template-columns: 50px 200px;
+    }
+
+    input {
+      padding: 5px;
+      transform: translateY(-5px);
+      border-radius:5px;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    button {
+      background: #1b57f0;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<form action='#' th:action="@{/add-employee}" th:object="${employee}" method="post">
+  <h3>Add new employee</h3>
+  <label for="name">Name:
+    <input type="text" id='name' th:field="*{name}" />
+  </label>
+  <label for="age">Age:
+    <input type="number" id='age' th:field="*{age}" />
+  </label>
+
+  <label for="avatar">Avatar:
+    <input type="text" id='avatar' th:field="*{avatar}" />
+  </label>
+
+  <button>Submit</button>
+</form>
+</body>
+</html>

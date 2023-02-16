@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Information</title>
+    <style>
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            text-align: center;
+        }
+
+        table {
+            background: lightgrey;
+            width: 80%;
+            margin: 0 auto;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Employee Information</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Avatar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.id}"></td>
+                <td th:text="${employee.name}"></td>
+                <td> <img src="#" th:src="@{${employee.avatar}}" /></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
